@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -56,7 +57,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = inputEmail.getText().toString().trim();
+                final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
@@ -91,8 +92,9 @@ public class SignupActivity extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(SignupActivity.this, "Done",
                                             Toast.LENGTH_SHORT).show();
-
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                     Intent intent = new Intent(new Intent(SignupActivity.this, InfoActivity.class));
+                                     intent.putExtra("Email",email);
+                                     startActivity(intent);
                                     finish();
                                 }
                             }
