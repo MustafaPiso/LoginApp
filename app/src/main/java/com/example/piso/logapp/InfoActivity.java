@@ -28,17 +28,14 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);Firebase.setAndroidContext(this);
        // mDatabase = new Firebase("https://logapp-f4b65.firebaseio.com/") ;
-        String Id = "ID";
-        if(getIntent().getExtras().containsKey("Email"))
-        {
-            Id = (String) getIntent().getExtras().get("Email");
-        }
+
         myRef = database.getReference("User");
-        if(Id!=null)
-        {
-            myRef.child(Id).child("username").setValue("p");
-            myRef.child(Id).child("email").setValue("mustafa");
-        }
+
+
+            myRef.child("User").child("username").setValue("p");
+            myRef.child("User").child("email").setValue("mustafa");
+
+
 
         first = (TextView) findViewById(R.id.firstname);
         last  = (TextView) findViewById(R.id.lastname);

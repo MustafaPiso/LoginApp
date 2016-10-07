@@ -93,7 +93,7 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Done",
                                             Toast.LENGTH_SHORT).show();
                                      Intent intent = new Intent(new Intent(SignupActivity.this, InfoActivity.class));
-                                     intent.putExtra("Email",email);
+                                   //  intent.putExtra("Email",email);
                                      startActivity(intent);
                                     finish();
                                 }
